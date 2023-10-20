@@ -1,0 +1,20 @@
+name: deploy test
+on: push
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo 'Hello, GitHub Actions!'
+    build:
+      name: Build
+      runs-on: ubuntu-latest
+      steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_KEY_PEM }}
+          script: whoam
+      - name: hello
+        run: echo 'ssh!'
