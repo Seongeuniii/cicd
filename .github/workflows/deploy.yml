@@ -16,7 +16,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PEM_KEY }}
           script: |
-              whoam
               pwd
+              sudo docker run -d -p 8080:80 nginx:latest
       - name: hello
         run: echo 'ssh!'
