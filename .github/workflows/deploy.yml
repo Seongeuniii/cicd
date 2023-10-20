@@ -14,7 +14,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_KEY_PEM }}
+          key: ${{ secrets.SSH_KEY_PEM }}
           script: whoam
       - name: hello
         run: echo 'ssh!'
