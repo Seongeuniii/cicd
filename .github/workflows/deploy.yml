@@ -15,6 +15,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY_PEM }}
+          port: 22
           script: whoam
       - name: hello
         run: echo 'ssh!'
